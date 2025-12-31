@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build & Deploy (Make)",
+            "type": "shell",
+            "command": "make -C ${workspaceFolder}/darknetz/host CROSS_COMPILE_AARCH64=${env:CROSS_COMPILE_AARCH64} && make -C ${workspaceFolder}/darknetz/ta CROSS_COMPILE=${env:CROSS_COMPILE_AARCH64} && scp ${workspaceFolder}/darknetz/host/darknetp nvidia@192.168.55.1:~/darknetz_work/ && scp -r ${workspaceFolder}/darknetz/tz_data/cfg nvidia@192.168.55.1:~/darknetz_work/ && scp ${workspaceFolder}/darknetz/ta/*.ta nvidia@192.168.55.1:/lib/optee_armtz/",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "수정된 Makefile을 사용하여 빠르고 정확하게 빌드합니다."
+        }
+    ]
+}
