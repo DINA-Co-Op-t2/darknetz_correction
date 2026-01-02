@@ -14,10 +14,10 @@
 #define TA_FLAGS			TA_FLAG_EXEC_DDR
 
 /* Provisioned stack size */
-#define TA_STACK_SIZE			(2 * 1024 * 1024)
+#define TA_STACK_SIZE			(1024 * 1024) // 1 MB
 
 /* Provisioned heap size for TEE_Malloc() and friends */
-#define TA_DATA_SIZE			(5 * 1024 * 1024)
+#define TA_DATA_SIZE			(6 * 1024 * 1024) // 6 MB 합쳐서 7MB까지 됨
 
 /* Extra properties (give a version id and a string name) */
 #define TA_CURRENT_TA_EXT_PROPERTIES \

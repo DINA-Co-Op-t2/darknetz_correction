@@ -74,7 +74,8 @@ cost_layer_TA make_cost_layer_TA_new(int batch, int inputs, COST_TYPE_TA cost_ty
 
 void forward_cost_layer_TA(cost_layer_TA l, network_TA net)
 {
-    if (!net.truth) return;
+    if(!net.truth) return;
+
     if(l.cost_type == MASKED_TA){
         int i;
         for(i = 0; i < l.batch*l.inputs; ++i){

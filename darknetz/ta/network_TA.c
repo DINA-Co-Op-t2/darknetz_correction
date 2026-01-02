@@ -11,6 +11,9 @@
 #include <tee_internal_api.h>
 #include <tee_internal_api_extensions.h>
 
+#undef TRACE_LEVEL
+#define TRACE_LEVEL TRACE_FLOW
+
 network_TA netta;
 int roundnum = 0;
 float err_sum = 0;
@@ -89,7 +92,6 @@ void forward_network_TA()
         }
 
         l.forward_TA(l, netta);
-
         if(debug_summary_pass == 1){
             summary_array("forward_network / l.output", l.output, l.outputs*netta.batch);
         }
